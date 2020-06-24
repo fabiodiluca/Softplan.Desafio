@@ -1,6 +1,4 @@
-﻿using AutoMapper;
-
-namespace Softplan.Desafio
+﻿namespace Softplan.Desafio
 {
     public class UseCaseBase : IUseCaseBase
     {

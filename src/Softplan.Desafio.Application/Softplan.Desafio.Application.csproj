@@ -11,15 +11,6 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <DocumentationFile>bin\Release\netcoreapp2.2\Softplan.Desafio.Application.xml</DocumentationFile>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Compile Remove="Interfaces\UnitOfWork\**" />
-    <Compile Remove="Interfaces\UseCases\**" />
-    <EmbeddedResource Remove="Interfaces\UnitOfWork\**" />
-    <EmbeddedResource Remove="Interfaces\UseCases\**" />
-    <None Remove="Interfaces\UnitOfWork\**" />
-    <None Remove="Interfaces\UseCases\**" />
-  </ItemGroup>
   
   <ItemGroup>
     <PackageReference Include="DiLuca.RestApiClient" Version="0.0.5-alpha" />
@@ -28,10 +19,6 @@
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="NHibernate" Version="5.1.1" />
     <PackageReference Include="Serilog" Version="2.9.0" />
-  </ItemGroup>
-  
-  <ItemGroup>
-    <Folder Include="Interfaces\" />
   </ItemGroup>
   
   <ItemGroup>
