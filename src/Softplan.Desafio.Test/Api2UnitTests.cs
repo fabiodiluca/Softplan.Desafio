@@ -8,7 +8,7 @@ using Xunit;
 
 namespace Softplan.Desafio.Test
 {
-    public class Api2UnitTest
+    public class Api2UnitTests
     {
         [Fact]
         public async Task calculaJurosValorInicial100Meses5()

@@ -6,7 +6,7 @@ using Xunit;
 
 namespace Softplan.Desafio.Test
 {
-    public class Api1UnitTest
+    public class Api1UnitTests
     {
         [Fact]
         public void taxaJurosMustBe1Percent()
