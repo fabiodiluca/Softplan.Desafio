@@ -29,5 +29,12 @@ namespace Softplan.Desafio.Api2.Controllers
             );
             return _presenter.ContentResult;
         }
+
+        [Route("showmethecode")]
+        [HttpGet]
+        public async Task<ActionResult> showmethecode()
+        {
+            return Ok("https://github.com/fabiodiluca/Softplan.Desafio");
+        }
     }
 }
