@@ -15,7 +15,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Softplan.Desafio.Api2\Softplan.Desafio.Api2.csproj" />
-    <ProjectReference Include="..\Softplan.Desafio.Api\Softplan.Desafio.Api1.csproj" />
     <ProjectReference Include="..\Softplan.Desafio.Application\Softplan.Desafio.Application.csproj" />
   </ItemGroup>
 
