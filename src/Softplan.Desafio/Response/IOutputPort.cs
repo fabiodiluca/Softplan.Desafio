@@ -1,4 +1,4 @@
-﻿namespace Softplan.Desafio.Application.Interfaces
+﻿namespace Softplan.Desafio.Response
 {
     public interface IOutputPort<in TUseCaseResponse>
     {

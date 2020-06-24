@@ -11,9 +11,10 @@ namespace Softplan.Desafio.Test
         [Fact]
         public void taxaJurosMustBe1Percent()
         {
-            HomeController controller = new HomeController(new TaxaJurosUseCase(null), new Presenter());
-            var result = (JsonContentResult) controller.taxaJuros();
+            var controller = new HomeController(new TaxaJurosUseCase(null), new Presenter());
+            var result = (JsonContentResult)controller.taxaJuros();
             var reponse = JsonConvert.DeserializeObject<TaxaJurosResponse>(result.Content);
+
             Assert.Equal(200, result.StatusCode);
             Assert.Equal(0.01m, reponse.TaxaJuros);
         }

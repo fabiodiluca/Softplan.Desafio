@@ -1,5 +1,5 @@
-﻿using Softplan.Desafio.Application.Interfaces;
-using Softplan.Desafio.Serialization;
+﻿using Softplan.Desafio.Serialization;
+using Softplan.Desafio.UseCase;
 using System.Net;
 
 namespace Softplan.Desafio.Response

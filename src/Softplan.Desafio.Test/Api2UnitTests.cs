@@ -15,9 +15,10 @@ namespace Softplan.Desafio.Test
         {
             var api1 = new Api1ClientMock();
 
-            HomeController controller = new HomeController(new TaxaJurosUseCase(api1), new Presenter());
-            var result = (JsonContentResult) (await controller.calculajuros(100, 5));
+            var controller = new HomeController(new TaxaJurosUseCase(api1), new Presenter());
+            var result = (JsonContentResult)(await controller.calculajuros(100, 5));
             var reponse = JsonConvert.DeserializeObject<CalcularTaxaJurosResponse>(result.Content);
+
             Assert.Equal(200, result.StatusCode);
             Assert.Equal(105.1m, reponse.Resultado);
         }

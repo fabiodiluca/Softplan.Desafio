@@ -1,4 +1,4 @@
-﻿namespace Softplan.Desafio.Application.Interfaces
+﻿namespace Softplan.Desafio.UseCase
 {
     public interface IUseCaseRequest<out TUseCaseResponse>
     {

@@ -1,4 +1,6 @@
-﻿namespace Softplan.Desafio.Application.UseCases.TaxaJuros
+﻿using Softplan.Desafio.UseCase;
+
+namespace Softplan.Desafio.Application.UseCases.TaxaJuros
 {
     public class TaxaJurosResponse: UseCaseResponseMessageBase
     {

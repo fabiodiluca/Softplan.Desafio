@@ -1,5 +1,6 @@
 ﻿using Autofac;
 using Softplan.Desafio.Application.UseCases.TaxaJuros;
+using Softplan.Desafio.UseCase;
 
 namespace Softplan.Desafio.Infra.CrossCutting.IoC
 {
