@@ -14,7 +14,6 @@ using Newtonsoft.Json.Serialization;
 using Serilog;
 using Serilog.Sinks.RollingFileAlternate;
 using Softplan.Desafio.Api1;
-using Softplan.Desafio.Infra.CrossCutting.AutoMapper;
 using Softplan.Desafio.Infra.CrossCutting.IoC;
 using Softplan.Desafio.Response;
 using Swashbuckle.AspNetCore.Swagger;

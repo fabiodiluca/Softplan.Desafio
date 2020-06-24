@@ -13,7 +13,7 @@ namespace Softplan.Desafio.Test.Mocks
 
         public async Task<TaxaJurosResponse> GetTaxaJuros()
         {
-            return new TaxaJurosResponse(0.01m);
+            return await Task.FromResult(new TaxaJurosResponse(0.01m));
         }
     }
 }
