@@ -21,11 +21,17 @@ namespace Softplan.Desafio.Application.UseCases.TaxaJuros
         {
             TaxaJurosResponse taxaJurosResponse = await _apiClient.GetTaxaJuros();
 
-            var resultado = Math.Truncate(valorInicial * (decimal)
-                (Math.Pow((1d + (double)taxaJurosResponse.TaxaJuros), tempo) * 100)) 
-                / 100m;
+            var resultado = Truncate2DecimalPlaces(
+                valorInicial * (decimal)
+                (Math.Pow((1d + (double)taxaJurosResponse.TaxaJuros), tempo))
+            );
 
             return new CalcularTaxaJurosResponse(resultado);
+        }
+
+        private decimal Truncate2DecimalPlaces(decimal value)
+        {
+            return Math.Truncate(value * 100m) / 100m;
         }
     }
 }

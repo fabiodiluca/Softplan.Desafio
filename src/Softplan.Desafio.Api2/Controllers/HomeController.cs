@@ -33,7 +33,7 @@ namespace Softplan.Desafio.Api2.Controllers
 
         [Route("showmethecode")]
         [HttpGet]
-        public async Task<ActionResult> showmethecode()
+        public ActionResult showmethecode()
         {
             return Ok("https://github.com/fabiodiluca/Softplan.Desafio");
         }
