@@ -1,5 +1,6 @@
 ﻿using DiLuca.RestApiClient;
 using Microsoft.Extensions.Configuration;
+using Softplan.Desafio.Application.Exceptions;
 using Softplan.Desafio.Application.UseCases.TaxaJuros;
 using System;
 using System.Net;
@@ -20,7 +21,7 @@ namespace Softplan.Desafio.Application
             (await this._GetAsync("taxaJuros"))
             .HttpStatus(HttpStatusCode.OK, ref taxaJurosResponse)
             .OtherHttpStatus((resp) =>
-                throw new Exception("API 1 está com problemas")
+                throw new Api1GetTaxaJurosException(null)
             );
 
             return taxaJurosResponse;
