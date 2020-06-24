@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.9.0" />
+    <PackageReference Include="xunit" Version="2.4.0" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.0" />
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Softplan.Desafio.Api2\Softplan.Desafio.Api2.csproj" />
+    <ProjectReference Include="..\Softplan.Desafio.Api\Softplan.Desafio.Api1.csproj" />
+    <ProjectReference Include="..\Softplan.Desafio.Application\Softplan.Desafio.Application.csproj" />
+  </ItemGroup>
+
+</Project>
