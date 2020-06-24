@@ -1,8 +1,5 @@
-﻿using AutoMapper;
-using System;
-using System.Net;
+﻿using System;
 using System.Threading.Tasks;
-using Softplan.Desafio;
 
 namespace Softplan.Desafio.Application.UseCases.TaxaJuros
 {
