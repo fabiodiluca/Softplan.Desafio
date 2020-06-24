@@ -1,4 +1,4 @@
-﻿namespace Softplan.Desafio.Application
+﻿namespace Softplan.Desafio
 {
     public abstract class UseCaseResponseMessageBase
     {

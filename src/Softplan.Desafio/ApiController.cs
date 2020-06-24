@@ -1,11 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Softplan.Desafio.Api2.Response;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Softplan.Desafio.Response;
 
-namespace Softplan.Desafio.Api2.Controllers
+namespace Softplan.Desafio.Controllers
 {
     public abstract class ApiController : ControllerBase
     {

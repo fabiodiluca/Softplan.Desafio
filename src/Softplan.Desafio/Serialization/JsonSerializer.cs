@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 
-namespace Softplan.Desafio.Api1.Serialization
+namespace Softplan.Desafio.Serialization
 {
     public sealed class JsonSerializer
     {

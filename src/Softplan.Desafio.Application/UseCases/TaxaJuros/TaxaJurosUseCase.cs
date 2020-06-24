@@ -2,13 +2,14 @@
 using System;
 using System.Net;
 using System.Threading.Tasks;
+using Softplan.Desafio;
 
 namespace Softplan.Desafio.Application.UseCases.TaxaJuros
 {
     public class TaxaJurosUseCase : UseCaseBase, ITaxaJurosUseCase
     {
         protected IApi1Client _apiClient;
-        public TaxaJurosUseCase(IApi1Client apiClient, IMapper mapper) : base(mapper)
+        public TaxaJurosUseCase(IApi1Client apiClient) : base()
         {
             _apiClient = apiClient;
         }

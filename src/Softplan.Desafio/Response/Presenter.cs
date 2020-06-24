@@ -1,13 +1,8 @@
-﻿using Softplan.Desafio.Api1.Serialization;
-using Softplan.Desafio.Application;
-using Softplan.Desafio.Application.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Softplan.Desafio.Application.Interfaces;
+using Softplan.Desafio.Serialization;
 using System.Net;
-using System.Threading.Tasks;
 
-namespace Softplan.Desafio.Api1.Response
+namespace Softplan.Desafio.Response
 {
     public class Presenter : IOutputPort<UseCaseResponseMessageBase>
     {

@@ -16,7 +16,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="6.0.0" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
     <PackageReference Include="IdentityServer4.AccessTokenValidation" Version="2.7.0" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
@@ -31,6 +31,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Softplan.Desafio.Application\Softplan.Desafio.Application.csproj" />
     <ProjectReference Include="..\Softplan.Desafio.Infra.CrossCutting\Softplan.Desafio.Infra.CrossCutting.csproj" />
+    <ProjectReference Include="..\Softplan.Desafio\Softplan.Desafio.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Softplan.Desafio.Api2.Response
+namespace Softplan.Desafio.Response
 {
     public sealed class JsonContentResult : ContentResult
     {

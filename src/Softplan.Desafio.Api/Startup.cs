@@ -14,9 +14,10 @@ using Newtonsoft.Json.Serialization;
 using Serilog;
 using Serilog.Sinks.RollingFileAlternate;
 using Softplan.Desafio.Api1;
-using Softplan.Desafio.Api1.Response;
+using Softplan.Desafio.Response;
 using Softplan.Desafio.Infra.CrossCutting.AutoMapper;
 using Softplan.Desafio.Infra.CrossCutting.IoC;
+using Softplan.Desafio.Response;
 using Swashbuckle.AspNetCore.Swagger;
 using System;
 using System.Collections.Generic;
@@ -75,19 +76,6 @@ namespace Softplan.Desafio.Api1
                 options.EnableForHttps = true;
             });
 
-            services.AddAutoMapper(config =>
-            {
-                config.ForAllMaps((map, expression) =>
-                {
-                    foreach (var unmappedPropertyName in map.GetUnmappedPropertyNames())
-                        expression.ForMember(unmappedPropertyName,
-                            configurationExpression => configurationExpression.Ignore());
-                });
-
-                config.AddProfiles(typeof(ApplicationProfile).Assembly);
-            });
-
-            services.AddScoped<IMapper>(sp => new Mapper(sp.GetRequiredService<AutoMapper.IConfigurationProvider>(), sp.GetService));
             services.AddSingleton<IConfigurationRoot>(_configurationRoot);
 
             ConfigureSwagger(services);
@@ -143,8 +131,6 @@ namespace Softplan.Desafio.Api1
         public void ConfigureContainer(ContainerBuilder builder)
         {
             builder.RegisterModule(new ApplicationModule());
-            builder.RegisterModule(new InfraModule());
-
             builder.RegisterType<Presenter>();
         }
 

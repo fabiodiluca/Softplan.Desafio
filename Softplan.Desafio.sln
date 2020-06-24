@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Softplan.Desafio.Infra.Cros
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Softplan.Desafio.Api2", "src\Softplan.Desafio.Api2\Softplan.Desafio.Api2.csproj", "{57B372EC-D00B-45AB-8CC1-2ACA078F0387}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Softplan.Desafio", "src\Softplan.Desafio\Softplan.Desafio.csproj", "{D4DCC769-4CC7-4608-9075-2ECBABAF49C0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{57B372EC-D00B-45AB-8CC1-2ACA078F0387}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{57B372EC-D00B-45AB-8CC1-2ACA078F0387}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{57B372EC-D00B-45AB-8CC1-2ACA078F0387}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4DCC769-4CC7-4608-9075-2ECBABAF49C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4DCC769-4CC7-4608-9075-2ECBABAF49C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4DCC769-4CC7-4608-9075-2ECBABAF49C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4DCC769-4CC7-4608-9075-2ECBABAF49C0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

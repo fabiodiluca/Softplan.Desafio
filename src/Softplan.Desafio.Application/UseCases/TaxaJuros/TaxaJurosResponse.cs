@@ -1,4 +1,5 @@
 ﻿using System;
+using Softplan.Desafio;
 
 namespace Softplan.Desafio.Application.UseCases.TaxaJuros
 {

@@ -1,5 +1,5 @@
 ﻿using Autofac;
-using Softplan.Desafio.Application.UseCases;
+using Softplan.Desafio.Application.UseCases.TaxaJuros;
 
 namespace Softplan.Desafio.Infra.CrossCutting.IoC
 {
@@ -9,6 +9,10 @@ namespace Softplan.Desafio.Infra.CrossCutting.IoC
         {
             builder
                .RegisterAssemblyTypes(typeof(IUseCaseBase).Assembly)
+               .AsImplementedInterfaces().InstancePerLifetimeScope();
+
+            builder
+               .RegisterAssemblyTypes(typeof(ITaxaJurosUseCase).Assembly)
                .AsImplementedInterfaces().InstancePerLifetimeScope();
         }
     }

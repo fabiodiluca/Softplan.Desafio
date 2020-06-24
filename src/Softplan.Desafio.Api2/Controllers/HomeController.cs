@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Softplan.Desafio.Api2.Response;
 using Softplan.Desafio.Application.UseCases.TaxaJuros;
+using Softplan.Desafio.Controllers;
+using Softplan.Desafio.Response;
 using System.Threading.Tasks;
 
 namespace Softplan.Desafio.Api2.Controllers
