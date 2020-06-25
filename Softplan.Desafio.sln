@@ -5,8 +5,6 @@ VisualStudioVersion = 15.0.28010.2003
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Softplan.Desafio.Application", "src\Softplan.Desafio.Application\Softplan.Desafio.Application.csproj", "{D721C2B8-C90F-4279-8A63-4A06159D28A8}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Softplan.Desafio.Test", "src\Softplan.Desafio.Test\Softplan.Desafio.Test.csproj", "{45A3DA33-3554-4C82-9588-ACB73AC9A4DD}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Softplan.Desafio.Infra.CrossCutting", "src\Softplan.Desafio.Infra.CrossCutting\Softplan.Desafio.Infra.CrossCutting.csproj", "{B6B4FDA9-7952-4527-9E59-9EC29FB743B8}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Softplan.Desafio.Api2", "src\Softplan.Desafio.Api2\Softplan.Desafio.Api2.csproj", "{57B372EC-D00B-45AB-8CC1-2ACA078F0387}"
@@ -14,6 +12,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Softplan.Desafio", "src\Softplan.Desafio\Softplan.Desafio.csproj", "{D4DCC769-4CC7-4608-9075-2ECBABAF49C0}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Softplan.Desafio.Api1", "src\Softplan.Desafio.Api1\Softplan.Desafio.Api1.csproj", "{04352EAD-CE16-4BAD-9606-77555ADC9739}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Softplan.Desafio.Test", "Softplan.Desafio.Test\Softplan.Desafio.Test.csproj", "{983433A3-A75B-412D-A011-C59D0857D088}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,10 +25,6 @@ Global
 		{D721C2B8-C90F-4279-8A63-4A06159D28A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D721C2B8-C90F-4279-8A63-4A06159D28A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D721C2B8-C90F-4279-8A63-4A06159D28A8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{45A3DA33-3554-4C82-9588-ACB73AC9A4DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{45A3DA33-3554-4C82-9588-ACB73AC9A4DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{45A3DA33-3554-4C82-9588-ACB73AC9A4DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{45A3DA33-3554-4C82-9588-ACB73AC9A4DD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B6B4FDA9-7952-4527-9E59-9EC29FB743B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B6B4FDA9-7952-4527-9E59-9EC29FB743B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B6B4FDA9-7952-4527-9E59-9EC29FB743B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -45,6 +41,10 @@ Global
 		{04352EAD-CE16-4BAD-9606-77555ADC9739}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{04352EAD-CE16-4BAD-9606-77555ADC9739}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{04352EAD-CE16-4BAD-9606-77555ADC9739}.Release|Any CPU.Build.0 = Release|Any CPU
+		{983433A3-A75B-412D-A011-C59D0857D088}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{983433A3-A75B-412D-A011-C59D0857D088}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{983433A3-A75B-412D-A011-C59D0857D088}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{983433A3-A75B-412D-A011-C59D0857D088}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
