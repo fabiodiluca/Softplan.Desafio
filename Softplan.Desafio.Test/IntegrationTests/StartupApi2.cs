@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Softplan.Desafio.Application.UseCases.TaxaJuros;
 using Softplan.Desafio.Response;
@@ -8,9 +9,12 @@ namespace Softplan.Desafio.Test.IntegrationTests
 {
     public class StartupApi2 : StartupBase
     {
-        public StartupApi2(IConfiguration configuration) : base(configuration)
+        protected override string Version { get { return "1"; } }
+        protected override string ProjectTitleName { get { return "Softplan.Desafio.Api2"; } }
+
+        public StartupApi2(IConfiguration configuration, IHostingEnvironment env) : base(configuration, env)
         {
-            this.ProjectTitleName = "Softplan.Desafio.Api2";
+
         }
 
         public override void ConfigureContainer(ContainerBuilder builder)

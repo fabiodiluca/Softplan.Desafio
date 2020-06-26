@@ -25,9 +25,11 @@ namespace Softplan.Desafio.Api2
 {
     public class Startup : StartupBase
     {
-        public Startup(IConfiguration configuration) : base(configuration)
+        protected override string Version { get { return "1"; } }
+        protected override string ProjectTitleName { get { return "Softplan.Desafio.Api2"; } }
+        public Startup(IConfiguration configuration, IHostingEnvironment env) : base(configuration, env)
         {
-            this.ProjectTitleName = "Softplan.Desafio.Api2";
+
         }
 
         public override void ConfigureContainer(ContainerBuilder builder)

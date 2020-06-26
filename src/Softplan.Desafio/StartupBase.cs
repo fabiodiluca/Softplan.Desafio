@@ -17,49 +17,53 @@ namespace Softplan.Desafio
 {
     public abstract class StartupBase
     {
-        protected const string Version = "1";
-        protected string ProjectTitleName = "";
-        protected readonly IConfigurationRoot _configurationRoot;
-        protected readonly ILogger _serilog;
+        protected abstract string Version { get; }
+        protected abstract string ProjectTitleName { get; }
 
-        public StartupBase(IConfiguration configuration)
+        protected IConfigurationRoot _configurationRoot;
+        protected ILogger _serilog;
+
+        public StartupBase(IConfiguration configuration, IHostingEnvironment env)
         {
-            try
-            {
-                _serilog = CreateLogger();
+            Try(() => {
+                _serilog = CreateLogger(env);
+                _configurationRoot = BuildConfigurationRoot(configuration);
+            });
+        }
 
-                var builder = new ConfigurationBuilder()
-                       .SetBasePath(Directory.GetCurrentDirectory())
-                       .AddJsonFile("appsettings.json", true, true);
+        public IConfigurationRoot BuildConfigurationRoot(IConfiguration configuration)
+        {
+            var builder = new ConfigurationBuilder()
+               .SetBasePath(Directory.GetCurrentDirectory())
+               .AddJsonFile("appsettings.json", true, true);
 
-                _configurationRoot = builder.Build();
-            }
-            catch (Exception ex)
-            {
-                _serilog?.Error("Erro no Startup: " + ex);
-            }
+            return builder.Build();
         }
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton(ctx => _serilog);
-
-            services.AddMvc()
-                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
-                .AddJsonOptions(opt =>
-                {
-                    opt.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
-                    opt.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
-                    opt.SerializerSettings.DateTimeZoneHandling = DateTimeZoneHandling.Utc;
-                    opt.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
-                });
-
-            services.AddSingleton<IConfigurationRoot>(_configurationRoot);
-
-            ConfigureSwagger(services);
+            Try(() => {
+                services.AddSingleton(ctx => _serilog);
+                services.AddSingleton(_configurationRoot);
+                AddMvc(services);
+                AddSwagger(services);
+            });
         }
 
-        private void ConfigureSwagger(IServiceCollection services)
+        public void AddMvc(IServiceCollection services)
+        {
+            services.AddMvc()
+            .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
+            .AddJsonOptions(opt =>
+            {
+                opt.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+                opt.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
+                opt.SerializerSettings.DateTimeZoneHandling = DateTimeZoneHandling.Utc;
+                opt.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+            });
+        }
+
+        private void AddSwagger(IServiceCollection services)
         {
             services.AddSwaggerGen(s =>
             {
@@ -88,30 +92,31 @@ namespace Softplan.Desafio
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            if (env.IsDevelopment())
-                app.UseDeveloperExceptionPage();
-            else
-                app.UseHsts();
+            Try(() => {
+                if (env.IsDevelopment())
+                    app.UseDeveloperExceptionPage();
+                else
+                    app.UseHsts();
 
-            app.UseHttpsRedirection();
+                app.UseHttpsRedirection();
 
-            app.UseSwagger();
-            app.UseSwaggerUI(s =>
-            {
-                s.SwaggerEndpoint($"/swagger/v{Version}/swagger.json", "API 1");
+                app.UseSwagger();
+                app.UseSwaggerUI(s =>
+                {
+                    s.SwaggerEndpoint($"/swagger/v{Version}/swagger.json", "API 1");
+                });
+
+                app.UseAuthentication();
+                app.UseStaticFiles();
+                app.UseMvcWithDefaultRoute();
             });
-
-            app.UseAuthentication();
-            app.UseStaticFiles();
-            app.UseMvcWithDefaultRoute();
         }
 
         public abstract void ConfigureContainer(ContainerBuilder builder);
 
-        private ILogger CreateLogger()
+        private ILogger CreateLogger(IHostingEnvironment env)
         {
-            return new LoggerConfiguration()
-                .MinimumLevel.Verbose()
+            var config = new LoggerConfiguration()
                 .Enrich.FromLogContext()
                 .WriteTo.Async(s =>
                     s.RollingFileAlternate(
@@ -120,18 +125,30 @@ namespace Softplan.Desafio
                         "[{ProcessId}] {Timestamp} [{ThreadId}] [{Level}] [{SourceContext}] [{Category}] {Message}{NewLine}{Exception}",
                         fileSizeLimitBytes: 10 * 1024 * 1024,
                         retainedFileCountLimit: 100,
-                        formatProvider: CreateLoggingCulture()
-                    ).MinimumLevel.Debug())
-                .CreateLogger();
+                        formatProvider: new CultureInfo("pt-BR")
+                    )
+                );
+            ;
+
+            if (env.IsDevelopment())
+                config.MinimumLevel.Verbose();
+            else
+                config.MinimumLevel.Error();
+
+            return config.CreateLogger();
         }
 
-        private static CultureInfo CreateLoggingCulture()
+        protected void Try(Action action)
         {
-            var loggingCulture = new CultureInfo("");
-            loggingCulture.DateTimeFormat.ShortDatePattern = "dd/MM/yyyy";
-            loggingCulture.DateTimeFormat.LongTimePattern = "HH:mm:ss.fffzz";
-
-            return loggingCulture;
+            try
+            {
+                action();
+            }
+            catch (Exception ex)
+            {
+                _serilog?.Error("Erro no Startup: " + ex);
+                throw ex;
+            }
         }
     }
 }
